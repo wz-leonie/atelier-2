@@ -1,0 +1,132 @@
+---
+title: "atelier 2"
+author: "Léonie Villien"
+date: "15/10/2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Les principaux types de vecteurs
+
+Dans R, il existe quatre types fondamentaux de vecteurs :
+
+1. les nombres réels (c’est-à-dire les nombres décimaux que nous utilisons au quotidien),
+2. les nombres entiers,
+3. les chaînes de caratères (qui correspondent à du texte) et
+4. les valeurs logiques ou valeurs booléennes, à savoir "vrai" ou "faux".
+
+
+```{r}
+x <- c(1,2,3)
+x
+```
+```{r}
+x <- seq(from=0,to=10,by=0.01)
+mean(x)
+sd(x)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+x <- seq(from=0.01,to=10,by=0.01)
+plot(x,log(x),type='l',col='blue')
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+x <- c(1,2,3)
+x
+class(x)
+y <- c(sqrt(2),sqrt(3),sqrt(5))
+y
+class(y)
+z <- c("pepito","juanito","jorgito")
+z
+class(z)
+```
+
+## Fonction rep()
+
+```{r}
+x <- rep("pepito",10)
+x
+y <- rep(c(sqrt(2),sqrt(3)),5)
+y
+z <- c(rep("f",25),rep("h",75))
+z
+```
+
+##• Fonction seq()
+
+```{r}
+x <- seq(from=-10,to=10,by=0.01)
+length(x)
+```
+
+## Valeurs manquantes
+
+```{r}
+taille <- c(142,NA,189,156,NA,190)
+taille
+mean(taille,na="true")
+sd(taille,na="true")
+is.na(taille)
+summary(taille)
+```
+
+## L'operateur :
+
+```{r}
+x <- seq(from=-100,100,by=2)
+x
+x[30]
+x[30:40]
+30:40
+1:100
+```
+
+## Indexation par condition
+
+```{r}
+sexe <- c(rep("f",25),rep("h",75))
+sexe
+taille <- rnorm(100,165,4)
+taille
+bd <- data.frame(sexe,taille)
+taille.h <- taille[sexe=="h"]
+taille.h
+taille.f <- taille[sexe=="f"]
+taille.f
+boxplot(taille.h,taille,taille.f)
+mean(taille)
+mean(taille.f)
+mean(taille.h)
+sexe.n <- sexe[taille < 164]
+sexe.n
+(table(sexe.n)/length(taille))*100
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
